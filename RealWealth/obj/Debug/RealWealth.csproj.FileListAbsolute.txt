@@ -167,7 +167,6 @@ E:\Repository\real-wealth\RealWealth\bin\Newtonsoft.Json.xml
 E:\Repository\real-wealth\RealWealth\bin\System.Net.Http.Formatting.xml
 E:\Repository\real-wealth\RealWealth\bin\System.Web.Http.xml
 E:\Repository\real-wealth\RealWealth\bin\System.Web.Http.WebHost.xml
-E:\Repository\real-wealth\RealWealth\obj\Debug\RealWealth.csprojResolveAssemblyReference.cache
 E:\Repository\real-wealth\RealWealth\obj\Debug\RealWealth.Properties.Resources.resources
 E:\Repository\real-wealth\RealWealth\obj\Debug\RealWealth.csproj.GenerateResource.Cache
 E:\Repository\real-wealth\RealWealth\obj\Debug\RealWealth.dll

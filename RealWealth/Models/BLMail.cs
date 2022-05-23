@@ -47,7 +47,8 @@ namespace RealWealth
             SmtpClient smtp = new SmtpClient();
             string str = string.Empty;
             string MailText = string.Empty;
-            message.From = new MailAddress("coustomer.RealWealth@gmail.com");
+            //message.From = new MailAddress("coustomer.RealWealth@gmail.com");
+            message.From = new MailAddress("developer2.afluex@gmail.com");
             using (StreamReader reader = new StreamReader(HttpContext.Current.Server.MapPath("~/EmailTemplateRegistration.html")))
             {
                 MailText = reader.ReadToEnd();
@@ -61,7 +62,7 @@ namespace RealWealth
             smtp.Port = 587;
             smtp.Host = "smtp.gmail.com"; //for gmail host  
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("coustomer.RealWealth@gmail.com", "RealWealth@2022");
+            smtp.Credentials = new NetworkCredential("developer2.afluex@gmail.com", "deve@486");
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.EnableSsl = true;
             message.To.Add(new MailAddress(MailId));
@@ -87,6 +88,7 @@ namespace RealWealth
             smtp.Port = 587;
             smtp.Host = "smtp.gmail.com"; //for gmail host  
             smtp.UseDefaultCredentials = false;
+            //smtp.Credentials = new NetworkCredential("coustomer.RealWealth@gmail.com", "RealWealth@2022");
             smtp.Credentials = new NetworkCredential("coustomer.RealWealth@gmail.com", "RealWealth@2022");
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.EnableSsl = true;
