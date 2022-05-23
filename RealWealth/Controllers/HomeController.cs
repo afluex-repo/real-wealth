@@ -529,7 +529,7 @@ namespace RealWealth.Controllers
                             mail.IsBodyHtml = true;
                             using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                             {
-                                smtp.Credentials = new NetworkCredential("coustomer.RealWealth@gmail.com", "RealWealth@2022");
+                                smtp.Credentials = new NetworkCredential("developer2.afluex@gmail.com", "deve@486");
                                 smtp.EnableSsl = true;
                                 smtp.Send(mail);
                             }
