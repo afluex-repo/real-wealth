@@ -49,6 +49,8 @@ namespace RealWealth.Models
 
         public string Subject { get; set; }
         public string Message { get; set; }
+        public string WalletBalance { get; set; }
+        
 
 
         #endregion
@@ -275,5 +277,19 @@ namespace RealWealth.Models
             DataSet ds = DBHelper.ExecuteQuery("AutoDistributePaymentForJob");
             return ds;
         }
+        
+        public DataSet ActivateUser()
+        {
+            SqlParameter[] para =
+            {
+                     new SqlParameter("@Fk_UserId",Fk_UserId),
+                     new SqlParameter("@Amount",Amount)
+            };
+            DataSet ds = DBHelper.ExecuteQuery("ActivateUserByWallet", para);
+            return ds;
+        }
+
+
+
     }
 }

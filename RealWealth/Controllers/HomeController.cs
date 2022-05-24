@@ -261,7 +261,14 @@ namespace RealWealth.Controllers
             }
             ViewBag.ddlProduct = ddlProduct;
             #endregion
-            return View();
+            Home model = new Home();
+            objcomm.Fk_UserId = Session["Pk_userId"].ToString();
+            DataSet dsbalance = objcomm.GetWalletBalance();
+            if (dsbalance != null && dsbalance.Tables.Count > 0 && dsbalance.Tables[0].Rows.Count > 0)
+            {
+                model.WalletBalance = dsbalance.Tables[0].Rows[0]["amount"].ToString();
+            }
+            return View(model);
         }
         [HttpPost]
         public ActionResult CompleteRegistration(Home model)
@@ -619,5 +626,40 @@ namespace RealWealth.Controllers
             DataSet ds = model.AutoDistributeLevelIncome();
             return Json(1, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult ActivateUser(string Amount)
+        {
+            Home model = new Home();
+            try
+            {
+                model.Fk_UserId = Session["Pk_UserId"].ToString();
+                model.Amount =Amount;
+                DataSet ds = model.ActivateUser();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1")
+                    {
+                        model.Result = "1";
+                        return View("Dashboard", "User");
+                    }
+                    else
+                    {
+                        return RedirectToAction("CompleteRegistration", "Home");
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("CompleteRegistration", "Home");
+                }
+                // Return on PaymentPage with Order data
+            }
+            catch (Exception ex)
+            {
+                model.Result = "0";
+                TempData["error"] = ex.Message;
+                return RedirectToAction("CompleteRegistration", "Home");
+            }
+        }
+
     }
 }
